@@ -22,8 +22,13 @@ router.get("/file/uuid/:uuidCode", storageController.getFileByUuidCode);
 router.post("/massiveUpload", isAuth, storageController.massiveUpload);
 
 router.put(
-  "/asignProductToImage/:uuidCode",
-  storageController.asignProductToImage
+  "/asignImageToProduct/:uuidCode",
+  storageController.asignImageToProduct
+);
+
+router.put(
+  "/removeImageFromProduct/:uuidCode",
+  storageController.removeImageFromProduct
 );
 
 router.get("/", storageController.getActiveImages);

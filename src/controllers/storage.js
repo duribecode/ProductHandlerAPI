@@ -211,13 +211,27 @@ storageController.getFileInformation = async (req, res) => {
   }
 };
 
-storageController.asignProductToImage = async (req, res) => {
+storageController.asignImageToProduct = async (req, res) => {
   try {
     let { uuidCode } = req.params;
     let { idProduct } = req.body;
 
     await Storage.update({ idProduct }, { where: { uuidCode } });
     return res.json("Image asigned to product");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+storageController.removeImageFromProduct = async (req, res) => {
+  try {
+    let { uuidCode } = req.params;
+    let { idProduct } = req.body;
+
+    await Storage.update(
+      { idProduct: null },
+      { where: { uuidCode, idProduct } }
+    );
   } catch (error) {
     console.log(error);
   }

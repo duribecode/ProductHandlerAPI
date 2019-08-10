@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const { DBNAME, USERNAMEDB, PASSWORD, DBTYPE, HOST } = process.env;
+const { DBNAME, USERNAMEDB, PASSWORD, DBTYPE, HOST } = process.env.local;
 
 const sequelize = new Sequelize(DBNAME, USERNAMEDB, PASSWORD, {
   host: HOST,
